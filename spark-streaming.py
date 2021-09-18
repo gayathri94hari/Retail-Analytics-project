@@ -43,9 +43,9 @@ if __name__ == "__main__":
     order_Raw = spark \
 		.readStream  \
 		.format("kafka")  \
-		.option("kafka.bootstrap.servers","18.211.252.152:9092")  \
+		.option("kafka.bootstrap.servers","<bootstrap-server>:<host>")  \
 		.option("startingOffsets","latest") \
-		.option("subscribe","real-time-project")  \
+		.option("subscribe","<topic-name>")  \
         .load() \
         .selectExpr("CAST(value AS STRING) as data")
 
